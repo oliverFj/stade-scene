@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stade Scene – Overblik</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="ds-scope">
+  <header class="scene-bar">
+    <div class="scene-bar-start">
+      <div class="scene-identity">
+        <a class="scene-home" href="https://oliver.fjordside.dk/design-studio/index.html" aria-label="Stade Scene – tilbage til Stade">
+          <span class="scene-mark" id="scene-mark" aria-hidden="true"></span>
+          <h1>Stade <strong>Scene</strong></h1>
+        </a>
+        <p id="native-app-name" class="scene-hint" hidden></p>
+      </div>
+      <nav class="scene-file-actions" id="file-actions" aria-label="Programmenu"></nav>
+    </div>
+    <div class="scene-bar-tools">
+      <p id="file-status" role="status"></p>
+      <div id="editor-theme"></div>
+    </div>
+  </header>
+  <main>
+    <div class="scene-workbench">
+      <aside class="scene-sidebar" aria-labelledby="blocks-title">
+        <section id="acts" aria-labelledby="acts-title" hidden>
+          <header class="scene-sidebar-heading">
+            <h2 id="acts-title">Akter</h2>
+            <span id="act-actions"></span>
+          </header>
+          <ul id="act-list"></ul>
+          <div id="act-settings"></div>
+        </section>
+        <section id="block-editor">
+          <header class="scene-sidebar-heading">
+            <h2 id="blocks-title">Blokke</h2>
+            <div class="scene-inline-actions" id="add-block" role="group" aria-label="Tilføj blokke"></div>
+          </header>
+          <p id="layout-help" class="scene-hint">Træk en blok for at flytte den, eller brug Flyt under Egenskaber.</p>
+          <div id="outline"></div>
+        </section>
+      </aside>
+      <section class="scene-preview" aria-labelledby="preview-title">
+        <header class="scene-preview-tools">
+          <h2 id="preview-title">Appvisning</h2>
+          <div class="scene-choice" id="scene-history" role="group" aria-label="Redigeringshistorik">
+            <button type="button" id="undo-edit" disabled>Fortryd</button>
+            <button type="button" id="redo-edit" disabled>Gentag</button>
+          </div>
+          <div class="scene-choice" role="group" aria-label="Visningstilstand">
+            <button type="button" id="edit-mode" aria-pressed="true">Redigér</button>
+            <button type="button" id="run-mode" aria-pressed="false">Afprøv</button>
+          </div>
+          <div class="scene-choice scene-viewport-choice" role="group" aria-label="Visningsbredde">
+            <button type="button" id="wide-mode" aria-pressed="true">Bred</button>
+            <button type="button" id="narrow-mode" aria-pressed="false">Smal</button>
+          </div>
+          <div id="preview-theme"></div>
+        </header>
+        <div class="scene-stage">
+          <div class="scene-frame-shell" id="frame-shell">
+            <iframe id="app-view" title="Overblik · fungerende appvisning" tabindex="-1"></iframe>
+            <div id="selection-frame" class="scene-selection" hidden>
+              <span id="selection-label" aria-hidden="true"></span>
+              <button id="resize-selection" type="button" aria-label="Tilpas containerens bredde"></button>
+            </div>
+            <form id="quick-edit" class="scene-quick-edit" aria-label="Direkte redigering" hidden>
+              <strong id="quick-label"></strong>
+              <div id="quick-size" class="scene-quick-tools" hidden>
+                <button type="button" id="quick-smaller" aria-label="Gør logoet mindre">−</button>
+                <output id="quick-value"></output>
+                <button type="button" id="quick-larger" aria-label="Gør logoet større">+</button>
+              </div>
+              <div id="quick-actions" class="scene-quick-tools" hidden>
+                <button type="button" id="quick-text">Ret tekst</button>
+                <button type="button" id="quick-hide" hidden>Skjul tekst</button>
+              </div>
+              <div id="quick-input" class="scene-quick-tools" hidden>
+                <input id="quick-draft" type="text">
+                <button type="submit">Gem tekst</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <aside class="scene-sidebar" id="properties-sidebar" aria-labelledby="properties-title">
+        <header class="scene-sidebar-heading"><h2 id="properties-title">Egenskaber</h2></header>
+        <div id="properties"></div>
+      </aside>
+    </div>
+    <p id="scene-status" class="scene-sr-only" role="status"></p>
+  </main>
+  <dialog id="template-picker" aria-labelledby="template-picker-title">
+    <header class="scene-library-header">
+      <h2 id="template-picker-title">Ny app</h2>
+      <form method="dialog" class="scene-dialog-actions"><button type="submit">Luk</button></form>
+    </header>
+    <div id="template-options"></div>
+  </dialog>
+  <dialog id="export-app" aria-labelledby="export-app-title">
+    <form id="export-app-form">
+      <h2 id="export-app-title">Eksportér app</h2>
+      <label class="scene-property" for="export-app-name">Navn
+        <input id="export-app-name" required maxlength="80" autofocus>
+      </label>
+      <p class="scene-hint">Appen downloades som en HTML-fil, der kan åbnes direkte i browseren.</p>
+      <p id="export-app-error" role="alert"></p>
+      <div class="scene-dialog-actions">
+        <button type="submit" formmethod="dialog" formnovalidate>Annuller</button>
+        <button type="submit" value="export">Download app</button>
+      </div>
+    </form>
+  </dialog>
+  <dialog id="block-library" aria-labelledby="library-title" aria-describedby="library-target">
+    <div class="scene-library">
+      <header class="scene-library-header">
+        <div>
+          <h2 id="library-title">Blokbibliotek</h2>
+          <p id="library-target" class="scene-hint"></p>
+        </div>
+        <form method="dialog" class="scene-dialog-actions"><button type="submit">Luk</button></form>
+      </header>
+      <div class="scene-library-filters">
+        <label class="scene-property" for="library-search">Søg i biblioteket
+          <input id="library-search" type="search" autocomplete="off" autofocus>
+        </label>
+        <label class="scene-property" for="library-kind">Vis
+          <select id="library-kind">
+            <option value="all">Alle</option>
+            <option value="component">Komponenter</option>
+            <option value="patterns">Mønstre</option>
+            <option value="layout">Layout</option>
+          </select>
+        </label>
+      </div>
+      <div id="library-results" class="scene-library-results"></div>
+      <p id="library-error" role="alert"></p>
+    </div>
+  </dialog>
+  <dialog id="content-editor" aria-labelledby="content-title-label">
+    <div class="scene-library-header">
+      <h2 id="content-title-label">Indhold</h2>
+      <form method="dialog" class="scene-dialog-actions"><button type="submit">Luk</button></form>
+    </div>
+    <div class="scene-content-actions" id="content-actions">
+      <label class="scene-property" for="content-select"><span id="content-select-label">Post</span>
+        <select id="content-select"></select>
+      </label>
+    </div>
+    <form id="content-form">
+      <div class="scene-content-fields" id="content-fields"></div>
+      <div class="scene-media-field">
+        <strong>Billede</strong>
+        <div id="content-image-preview"></div>
+        <p id="content-image-name" class="scene-hint"></p>
+        <div id="content-image-actions" class="scene-inline-actions"></div>
+      </div>
+      <p id="content-error" role="alert"></p>
+      <div class="scene-dialog-actions" id="content-form-actions">
+        <button type="submit" id="content-save" value="export">Gem post</button>
+      </div>
+      <p id="content-feedback" class="scene-hint" role="status"></p>
+    </form>
+  </dialog>
+  <dialog id="project-media" aria-labelledby="media-title">
+    <div class="scene-library">
+      <header class="scene-library-header">
+        <div>
+          <h2 id="media-title">Medier</h2>
+          <p id="media-target" class="scene-hint" hidden></p>
+        </div>
+        <form method="dialog" class="scene-dialog-actions"><button type="submit">Luk</button></form>
+      </header>
+      <div id="media-import-host" class="scene-inline-actions"></div>
+      <div id="media-results" class="scene-library-results scene-media-results"></div>
+      <p id="media-feedback" class="scene-hint" role="status"></p>
+    </div>
+  </dialog>
+  <dialog id="replace-scene" aria-labelledby="replace-title">
+    <form method="dialog">
+      <h2 id="replace-title">Åbn en anden scene?</h2>
+      <p>Der er ændringer i den åbne scene. Du kan blive her og gemme en kopi.</p>
+      <div class="scene-dialog-actions">
+        <button type="submit" value="cancel" autofocus>Bliv her</button>
+        <button type="submit" value="replace">Fortsæt</button>
+      </div>
+    </form>
+  </dialog>
+  <template id="app-preview-style"><!-- app-preview-style --></template>
+  <!-- native-export-shell -->
+  <script type="module" src="./app.mjs"></script>
+</body>
+</html>

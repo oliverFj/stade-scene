@@ -1,0 +1,32 @@
+{
+  "format": "stade-scene",
+  "version": 2,
+  "data": {
+    "template": "shop",
+    "acts": [
+      {
+        "id": "shop-main",
+        "name": "Webshop",
+        "mode": "side",
+        "layout": {
+          "id": "shop-layout",
+          "type": "container",
+          "name": "Webshop",
+          "width": 100,
+          "layout": { "flow": "stack", "gap": 8, "columns": 2, "align": "stretch" },
+          "children": [
+            {
+              "id": "shop-identity",
+              "type": "shop-header",
+              "actions": { "cart": { "kind": "block", "id": "shop-basket" } }
+            },
+            { "id": "shop-basket", "type": "shop-cart" },
+            { "id": "shop-product", "type": "shop-feature" },
+            { "id": "shop-catalog", "type": "shop-collection" },
+            { "id": "shop-signature", "type": "shop-footer" }
+          ]
+        }
+      }
+    ]
+  }
+}

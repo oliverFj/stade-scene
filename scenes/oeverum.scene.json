@@ -1,0 +1,122 @@
+{
+  "format": "stade-scene",
+  "version": 2,
+  "data": {
+    "template": "practice",
+    "acts": [
+      {
+        "id": "practice-main",
+        "name": "Øvelse",
+        "mode": "side",
+        "layout": {
+          "id": "practice",
+          "type": "container",
+          "name": "Øverum",
+          "width": 100,
+          "layout": { "flow": "stack", "gap": 12, "columns": 2, "align": "stretch" },
+          "children": [
+            {
+              "id": "practice-header",
+              "type": "container",
+              "name": "Toplinje",
+              "width": 100,
+              "layout": { "flow": "wrap", "gap": 16, "columns": 2, "align": "center" },
+              "children": [
+                { "id": "practice-brand", "type": "practice-brand" },
+                { "id": "practice-instrument", "type": "practice-instrument", "sizing": { "mode": "fixed", "basis": 104 } },
+                { "id": "practice-modes", "type": "practice-modes", "sizing": { "mode": "grow", "basis": 390 } },
+                { "id": "practice-tools", "type": "practice-tools" },
+                {
+                  "id": "practice-open-act",
+                  "type": "act-trigger",
+                  "props": {
+                    "label": "Lyd og værktøjer",
+                    "targetAct": "practice-audio"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "practice-songbar",
+              "type": "container",
+              "name": "Sangvælger-række",
+              "width": 100,
+              "layout": { "flow": "wrap", "gap": 16, "columns": 2, "align": "end" },
+              "children": [
+                { "id": "practice-kind", "type": "practice-kind" },
+                { "id": "practice-picker", "type": "practice-picker", "sizing": { "mode": "grow", "basis": 210 } },
+                { "id": "practice-tempo", "type": "practice-tempo", "sizing": { "mode": "fixed", "basis": 330 } }
+              ]
+            },
+            {
+              "id": "practice-controls",
+              "type": "container",
+              "name": "Øvepanel",
+              "width": 100,
+              "layout": { "flow": "stack", "gap": 12, "columns": 2, "align": "stretch" },
+              "children": [
+                {
+                  "id": "practice-panel-head",
+                  "type": "container",
+                  "name": "Status og afspilning",
+                  "width": 100,
+                  "layout": { "flow": "wrap", "gap": 12, "columns": 2, "align": "center" },
+                  "children": [
+                    { "id": "practice-status", "type": "practice-status", "sizing": { "mode": "grow", "basis": 300 } },
+                    { "id": "practice-transport", "type": "practice-transport" }
+                  ]
+                },
+                {
+                  "id": "practice-panel-settings",
+                  "type": "container",
+                  "name": "Puls og tempo",
+                  "width": 100,
+                  "layout": { "flow": "wrap", "gap": 12, "columns": 2, "align": "center" },
+                  "children": [
+                    { "id": "practice-metronome", "type": "practice-metronome" },
+                    { "id": "practice-speed", "type": "practice-speed", "sizing": { "mode": "fixed", "basis": 340 } }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "practice-fretboard-area",
+              "type": "container",
+              "name": "Instrumentområde",
+              "width": 100,
+              "layout": { "flow": "wrap", "gap": 12, "columns": 2, "align": "stretch" },
+              "children": [
+                { "id": "practice-fretboard", "type": "practice-fretboard", "sizing": { "mode": "grow", "basis": 720 } }
+              ]
+            },
+            {
+              "id": "practice-notation",
+              "type": "container",
+              "name": "Nodeområde",
+              "width": 100,
+              "layout": { "flow": "stack", "gap": 12, "columns": 2, "align": "stretch" },
+              "children": [
+                { "id": "practice-score", "type": "practice-score" }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "practice-audio",
+        "name": "Lyd og værktøjer",
+        "mode": "panel",
+        "layout": {
+          "id": "practice-audio-layout",
+          "type": "container",
+          "name": "Indhold",
+          "width": 100,
+          "layout": { "flow": "stack", "gap": 16, "columns": 2, "align": "stretch" },
+          "children": [
+            { "id": "practice-audio-instrument", "type": "practice-audio-instrument" }
+          ]
+        }
+      }
+    ]
+  }
+}

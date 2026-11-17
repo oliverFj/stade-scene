@@ -1,0 +1,25 @@
+{
+  "format": "stade-scene",
+  "version": 2,
+  "data": {
+    "template": "editor",
+    "acts": [
+      {
+        "id": "editor-main",
+        "name": "Editor",
+        "mode": "side",
+        "layout": {
+          "id": "editor",
+          "type": "container",
+          "name": "Editor",
+          "width": 100,
+          "layout": { "flow": "stack", "gap": 24, "columns": 2, "align": "stretch" },
+          "children": [
+            { "id": "editor-intro", "type": "editor-intro" },
+            { "id": "editor-workbench", "type": "editor-workbench" }
+          ]
+        }
+      }
+    ]
+  }
+}

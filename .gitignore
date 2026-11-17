@@ -1,0 +1,16 @@
+node_modules/
+/index.html
+/.design-studio/updates/
+/Blog.html
+/Editor.html
+/Overblik.html
+/Øverum.html
+/Webshop.html
+/artifacts/
+*.log
+*.tmp
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

@@ -1,0 +1,18 @@
+.scene-media-image { min-inline-size: 0; max-inline-size: 100%; }
+.scene-media-image > img { display: block; inline-size: 100%; block-size: auto; object-fit: contain; }
+.scene-image-placeholder {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 6px;
+  min-block-size: 6rem;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px dashed var(--ds-color-border-default);
+  border-radius: var(--ds-radius-control);
+  background: var(--ds-color-background-subtle);
+  color: var(--ds-color-text-secondary);
+  font-size: var(--ds-typography-size-small);
+  text-align: center;
+  overflow-wrap: anywhere;
+}

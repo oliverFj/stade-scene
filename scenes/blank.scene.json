@@ -1,0 +1,22 @@
+{
+  "format": "stade-scene",
+  "version": 2,
+  "data": {
+    "template": "blank",
+    "acts": [
+      {
+        "id": "home",
+        "name": "Forside",
+        "mode": "side",
+        "layout": {
+          "id": "page",
+          "type": "container",
+          "name": "Forside",
+          "width": 100,
+          "layout": { "flow": "stack", "gap": 16, "columns": 2, "align": "stretch" },
+          "children": []
+        }
+      }
+    ]
+  }
+}

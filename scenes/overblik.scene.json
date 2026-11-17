@@ -1,0 +1,69 @@
+{
+  "format": "stade-scene",
+  "version": 2,
+  "data": {
+    "template": "overview",
+    "acts": [
+      {
+        "id": "overview-main",
+        "name": "Overblik",
+        "mode": "side",
+        "layout": {
+          "id": "overview",
+          "type": "container",
+          "name": "Overblik",
+          "width": 100,
+          "layout": { "flow": "stack", "gap": 24, "columns": 2, "align": "stretch" },
+          "children": [
+            { "id": "intro", "type": "overview-intro" },
+            { "id": "metrics", "type": "overview-metrics" },
+            {
+              "id": "workspace",
+              "type": "container",
+              "name": "Arbejdsområde",
+              "width": 100,
+              "layout": { "flow": "row", "gap": 20, "columns": 2, "align": "start" },
+              "children": [
+                {
+                  "id": "projects",
+                  "type": "container",
+                  "name": "Projektliste",
+                  "width": 62,
+                  "layout": { "flow": "stack", "gap": 16, "columns": 2, "align": "stretch" },
+                  "children": [
+                    { "id": "project-table", "type": "overview-list" }
+                  ]
+                },
+                {
+                  "id": "details",
+                  "type": "container",
+                  "name": "Projektpanel",
+                  "width": 38,
+                  "layout": { "flow": "stack", "gap": 16, "columns": 2, "align": "stretch" },
+                  "children": [
+                    {
+                      "id": "phase-chart",
+                      "type": "phase-breakdown",
+                      "props": { "title": "Projekter pr. fase", "showCounts": true }
+                    },
+                    { "id": "project-detail", "type": "overview-detail" }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "stade-card",
+              "type": "card",
+              "props": {
+                "title": "Porteføljestatus",
+                "body": "Følg projekternes faser i oversigten ovenfor."
+              }
+            },
+            { "id": "stade-panel", "type": "resizable-panel", "name": "Skalerbart panel" }
+          ]
+        }
+      }
+    ],
+    "preview": {}
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "format": "stade-scene",
+  "version": 2,
+  "data": {
+    "template": "blog",
+    "acts": [
+      {
+        "id": "blog-main",
+        "name": "Blog",
+        "mode": "side",
+        "layout": {
+          "id": "blog-layout",
+          "type": "container",
+          "name": "Mellemrum",
+          "width": 100,
+          "layout": { "flow": "stack", "gap": 0, "columns": 1, "align": "stretch" },
+          "children": [
+            { "id": "blog-masthead", "type": "blog-masthead" },
+            { "id": "blog-categories", "type": "blog-categories" },
+            { "id": "blog-feature", "type": "blog-feature" },
+            {
+              "id": "blog-list", "type": "blog-list", "props": { "startAt": 2 },
+              "children": [
+                {
+                  "id": "blog-card", "name": "Kortlayout", "type": "container", "width": 100,
+                  "layout": { "flow": "stack", "gap": 8, "columns": 1, "align": "stretch" },
+                  "children": [
+                    { "id": "blog-card-image", "name": "Artikelbillede", "type": "image", "bindings": { "imageId": "imageId" } },
+                    { "id": "blog-card-title", "name": "Artiklens titel", "type": "heading", "props": { "variant": "panel" }, "bindings": { "text": "title" } },
+                    { "id": "blog-card-summary", "name": "Manchet", "type": "text", "bindings": { "text": "summary" } },
+                    { "id": "blog-card-read", "name": "Læs artikel", "type": "button" }
+                  ]
+                }
+              ]
+            },
+            { "id": "blog-footer", "type": "blog-footer" }
+          ]
+        }
+      },
+      {
+        "id": "blog-reading",
+        "name": "Artikel",
+        "mode": "side",
+        "layout": {
+          "id": "blog-reading-layout",
+          "type": "container",
+          "name": "Læsning",
+          "width": 100,
+          "layout": { "flow": "stack", "gap": 16, "columns": 1, "align": "stretch" },
+          "children": [
+            { "id": "blog-reader", "type": "blog-reader" }
+          ]
+        }
+      }
+    ]
+  }
+}

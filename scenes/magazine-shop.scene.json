@@ -1,0 +1,76 @@
+{
+  "format": "stade-scene",
+  "version": 2,
+  "data": {
+    "template": "magazine-shop",
+    "collections": {
+      "articles": [
+        {
+          "id": "plads-til-en-streg",
+          "title": "Plads til en streg",
+          "category": "Materialer",
+          "summary": "Om papiret som arbejdsrum, og hvorfor en notesbog godt må begynde med en løs streg.",
+          "body": "På papir kan en idé begynde, før man ved, hvad den handler om. En streg, et ord eller en lille liste får det første udkast ud af hovedet.\n\nFold notesbog er en af de ting, vi bruger, når opgaven stadig er åben. Her er plads til både det, der skal huskes, og det, der først giver mening senere.",
+          "art": "paper",
+          "productId": "notebook"
+        }
+      ]
+    },
+    "acts": [
+      {
+        "id": "magazine",
+        "name": "Magasin",
+        "mode": "side",
+        "layout": {
+          "id": "magazine-layout",
+          "type": "container",
+          "name": "Magasin",
+          "width": 100,
+          "layout": { "flow": "stack", "gap": 16, "columns": 1, "align": "stretch" },
+          "children": [
+            { "id": "magazine-header", "type": "blog-masthead" },
+            { "id": "magazine-story", "type": "blog-feature" },
+            { "id": "magazine-footer", "type": "blog-footer" }
+          ]
+        }
+      },
+      {
+        "id": "article",
+        "name": "Artikel",
+        "mode": "side",
+        "layout": {
+          "id": "article-layout",
+          "type": "container",
+          "name": "Artikel",
+          "width": 100,
+          "layout": { "flow": "stack", "gap": 16, "columns": 1, "align": "stretch" },
+          "children": [
+            {
+              "id": "magazine-reader",
+              "type": "blog-reader",
+              "actions": { "product": { "kind": "block", "id": "store-product" } }
+            }
+          ]
+        }
+      },
+      {
+        "id": "store",
+        "name": "Butik",
+        "mode": "side",
+        "layout": {
+          "id": "store-layout",
+          "type": "container",
+          "name": "Butik",
+          "width": 100,
+          "layout": { "flow": "stack", "gap": 16, "columns": 1, "align": "stretch" },
+          "children": [
+            { "id": "store-header", "type": "shop-header", "props": { "title": "Mellemrum Butik" } },
+            { "id": "store-cart", "type": "shop-cart" },
+            { "id": "store-product", "type": "shop-feature" },
+            { "id": "store-catalogue", "type": "shop-collection" }
+          ]
+        }
+      }
+    ]
+  }
+}
