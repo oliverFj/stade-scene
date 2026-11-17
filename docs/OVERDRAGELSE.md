@@ -73,7 +73,7 @@ Editoren har fået faste menuer, men den samlede informationsstruktur bør forts
 
 Stade ejer de fælles komponenter og controllere samt referencerne i studio/scenes/. Scene bruger disse ved build og har en kopieret runtime i design/. En frisk kildekopi af Scene kræver derfor også Stade-kilder. STADE_ROOT kan angives ved build. De to repositories skal holdes på kompatible versioner.
 
-Denne overdragelse er kontrolleret sammen med Stade-commit [6591327](https://github.com/oliverFj/design-studio/commit/65913275f2c4e3efcb650bac929f76f1c1b6c020).
+Denne overdragelse er kontrolleret sammen med Stade-commit [b58c468](https://github.com/oliverFj/design-studio/commit/b58c468d32a7cc8418b61ade8fcc5fa74e17485e).
 
 Stades agentværktøjer ligger i collaboration/scene-context.mjs, collaboration/scene-move.mjs og tools/mcp-server.mjs i Stade. get_scene_context læser gemt struktur, feltdefinitioner, bindinger og forbindelser fra HTML. Flytteværktøjet bruger revisioner og kontrollerer resultatet. Det er endnu ikke en generel API til at oprette, slette eller ændre alle data og egenskaber.
 
@@ -82,6 +82,8 @@ Stades agentværktøjer ligger i collaboration/scene-context.mjs, collaboration/
 Seneste funktionelle kontrol før denne overdragelse omfattede 68 målrettede Stade-tests, Scenes doctor, browserprøver af kortenes rækkefølge og feltbindinger, navigation og 320 px samt statisk gemning og genåbning af HTML. En browserprøve viste også alle 62 komponenter indlæst fra en scene. Det dokumenterer standardrendering, og yderligere komponentadfærd skal afprøves efter den konkrete integration.
 
 Ved klargøringen til offentliggørelse bestod hele Stades testsamling med 625 tests, tema- og dokumentationskontrollen samt Scenes doctor. Stade, Scene og hjemmesidens produktionspakke er genbygget. Hjemmesidens kontrol af links, ressourcer, kilder og offlinepakning bestod.
+
+En frisk GitHub-kopi afdækkede, at Windows-linjeskift gav falske fejl i doctor. Sammenligningen af CSS og kopieret runtime er nu uafhængig af LF/CRLF, og doctor følger STADE_ROOT eller projektets relative sti. De målrettede kontroller bestod med 98 tests, herunder regressionen for checkout og kildeplacering. Onlinefilerne er desuden hentet og sammenlignet med produktionspakkens SHA-256-fingeraftryk.
 
 HTTP-kontrol og statisk filkontrol er udført. Direkte åbning ved dobbeltklik, hele operativsystemets gemmeforløb og en samlet hjælpemiddelprøve kræver stadig manuel kontrol.
 

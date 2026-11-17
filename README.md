@@ -14,7 +14,7 @@ Alle 62 komponenter findes i Indsæt blok. Feltredigering, databindinger og forb
 
 Node.js 20 eller nyere og en kildekopi af [Stade](https://github.com/oliverFj/design-studio) er nødvendige ved build. Scene bruger bl.a. mønstre, demo-controllere og temaer fra Stade. Den kopierede runtime i design/ dækker kun en del af byggegrundlaget.
 
-Denne udgave er kontrolleret med Stade-commit [6591327](https://github.com/oliverFj/design-studio/commit/65913275f2c4e3efcb650bac929f76f1c1b6c020).
+Denne udgave er kontrolleret med Stade-commit [b58c468](https://github.com/oliverFj/design-studio/commit/b58c468d32a7cc8418b61ade8fcc5fa74e17485e).
 
 Klon fx begge repositories ved siden af hinanden. Kør derefter i Scenes mappe på PowerShell.
 
@@ -26,7 +26,8 @@ Klon fx begge repositories ved siden af hinanden. Kør derefter i Scenes mappe p
 På macOS og Linux kan build køres med en miljøvariabel.
 
     npm ci
-    STADE_ROOT=../design-studio npm run build
+    export STADE_ROOT=../design-studio
+    npm run build
     npm run doctor
 
 STADE_ROOT vælges ved build. Driftsformen, filformatet og kilderne er beskrevet i overdragelsen.

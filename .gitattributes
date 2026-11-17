@@ -1,0 +1,2 @@
+# Preserve the reviewed font licenses across Windows and Unix checkouts.
+/design/assets/*-OFL.txt text eol=lf
